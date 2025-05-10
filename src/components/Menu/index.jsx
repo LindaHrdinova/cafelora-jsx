@@ -20,6 +20,10 @@ export const Menu = () => (
               label: 'citrón',
             },
             {
+              color: '#feeeca',
+              label: 'mléčná pěna',
+            },
+            {
               color: '#433335',
               label: 'kakao',
             },

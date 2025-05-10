@@ -7,6 +7,7 @@ import { Contact } from '../components/Contact';
 import { Banner } from '../components/Banner';
 import { Menu } from '../components/Menu';
 import { Gallery } from '../components/Gallery';
+import { Drink } from '../components/Drink';
 
 document.querySelector('#root').innerHTML = render(
   <div className="page">

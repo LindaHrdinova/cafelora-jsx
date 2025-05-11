@@ -1,7 +1,7 @@
 import './drink.css';
 import { Layer } from '../Layer';
 
-export const Drink = ({ id, name, image, layers }) => (
+export const Drink = ({ id, name, ordered, layers, image }) => (
   <div className="drink">
     <div className="drink__product">
       <div className="drink__cup">
@@ -9,14 +9,23 @@ export const Drink = ({ id, name, image, layers }) => (
       </div>
       <div className="drink__info">
         <h3>{name}</h3>
-        {layers.map((layer) => (
-          <Layer color={layer.color} label={layer.label} />
+        {layers.map((layer, index) => (
+          <Layer key={index} color={layer.color} label={layer.label} />
         ))}
       </div>
     </div>
-    <form className="drink__controls">
+    <form
+      className="drink__controls"
+      data-name={name}
+      data-id={id}
+      data-ordered={ordered}
+    >
       <input type="hidden" className="order-id" value={id} />
-      <button className="order-btn">Objednat</button>
+      <button
+        className={ordered ? 'order-btn order-btn--ordered' : 'order-btn'}
+      >
+        {ordered ? 'Zrušit' : 'objednat'}
+      </button>
     </form>
   </div>
 );

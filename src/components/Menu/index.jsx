@@ -3,7 +3,6 @@ import './menu.css';
 
 export const Menu = ({ drinks }) => (
   <section className="menu" id="menu">
-    {console.log(drinks)}
     <div className="container">
       <h2>Naše nabídka</h2>
       <p className="menu-intro">
@@ -15,7 +14,7 @@ export const Menu = ({ drinks }) => (
             key={drink.id}
             id={drink.id}
             name={drink.name}
-            ordered={false}
+            ordered={drink.ordered}
             image={`http://localhost:4000${drink.image}`}
             layers={drink.layers}
             /*layers={[

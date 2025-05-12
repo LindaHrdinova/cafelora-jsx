@@ -14,7 +14,7 @@ const drinkList = data.data;
 
 document.querySelector('#root').innerHTML = render(
   <div className="page">
-    <Header />
+    <Header showMenu={false} />
     <main>
       <Banner />
       <Menu drinks={drinkList} />

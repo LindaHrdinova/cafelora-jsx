@@ -1,7 +1,6 @@
 import './header.css';
 
-export const Header = () => {
-  let navHidden = false;
+export const Header = ({ showMenu }) => {
   return (
     <header id="home">
       <div className="header__content container">
@@ -9,7 +8,7 @@ export const Header = () => {
 
         <div className="navigation">
           <button className="nav-btn"></button>
-          {navHidden ? (
+          {showMenu ? (
             <nav className="inline-nav">
               <a href="/">Hlavní stránka</a>
             </nav>

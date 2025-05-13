@@ -4,36 +4,29 @@ import './index.css';
 import './order.css';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
+import { Order } from '../components/Order';
+
+const responce = await fetch(
+  'http://localhost:4000/api/drinks?filter=ordered:eq:true&select=id,name,image',
+);
+const result = await responce.json();
+const orderedDrink = result.data;
+console.log(orderedDrink);
 
 document.querySelector('#root').innerHTML = render(
   <div className="page">
     <div className="page">
       <Header showMenu={true} />
-      {/*<header>
-        <div className="container header__content">
-          <div className="site-logo"></div>
-
-          <nav className="inline-nav">
-            <a href="/">Hlavní stránka</a>
-          </nav>
-        </div>
-      </header>*/}
-
       <main className="order">
         <div className="container order__content">
           <h1>Vaše objedávnka</h1>
-          <p className="empty-order">Zatím nemáte nic objednáno</p>
-          <div className="order__items">
-            <div className="order-item">
-              <img src="/cups/espresso.png" className="order-item__image" />
-              <div className="order-item__name">Espresso</div>
+          {orderedDrink.length > 0 ? (
+            <div className="order__items">
+              <Order items={orderedDrink} />
             </div>
-
-            <div className="order-item">
-              <img src="/cups/doppio.png" className="order-item__image" />
-              <div className="order-item__name">Doppio</div>
-            </div>
-          </div>
+          ) : (
+            <p className="empty-order">Zatím nemáte nic objednáno</p>
+          )}
         </div>
       </main>
       <Footer />
